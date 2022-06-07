@@ -1,10 +1,11 @@
 import React from 'react';
 import '../Styling/Anime.css';
 
-function Anime() {
+function Anime({ id, title, image }) {
     return(
-        <div>
-
+        <div id={ id }>
+            {/* <img src={ image } alt={ 'A poster image of ' + title } /> */}
+            <h1>{ title }</h1>
         </div>
     )
 }
