@@ -1,4 +1,5 @@
 import React from 'react';
+import '../Styling/Anime.css';
 
 function Anime() {
     return(

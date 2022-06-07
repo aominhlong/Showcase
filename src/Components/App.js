@@ -1,6 +1,7 @@
 import '../Styling/App.css';
 import React, { Component } from 'react';
 import AnimeContainer from './AnimeContainer'
+import Form from './Form';
 
 class App extends Component {
   constructor() {
@@ -9,7 +10,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <AnimeContainer />
+        <Form />
+        <AnimeContainer />
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import Anime from './Anime';
+import '../Styling/AnimeContainer.css';
 
 function AnimeContainer() {
     return(
