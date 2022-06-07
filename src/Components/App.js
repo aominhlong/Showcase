@@ -6,12 +6,15 @@ import Form from './Form';
 class App extends Component {
   constructor() {
     super()
+    this.state={
+      allAnime: []
+    }
   }
   render() {
     return (
       <div className="App">
         <Form />
-        <AnimeContainer />
+        <AnimeContainer Animes={ this.state.allAnime }/>
       </div>
     );
   }
