@@ -8,8 +8,9 @@ class Form extends Component {
     }
     render() {
         return(
-            <div>
-                
+            <div className='header'>
+                <h1 className='app-title'>Ani-Planet</h1>
+                <input type='text' placeholder='search'></input>
             </div>
         )
     }
