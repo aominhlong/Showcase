@@ -34,14 +34,15 @@ class App extends Component {
   }
 
   addToWatchList = (title) => {
-    console.log(title)
     const newAnime = this.state.allAnime.find(anime => {
       return anime.title.toLowerCase().includes(title.toLowerCase())
     })
-    if (this.state.myWatchList.length < 1 && this.state.myWatchList.includes(newAnime)) {
-      this.setState({ myWatchList: newAnime })
-    } else {
-      this.setState({myWatchList : [this.state.myWatchList, newAnime]})
+    if (this.state.myWatchList.length < 1 && !this.state.myWatchList.includes(newAnime)) {
+      this.setState({ myWatchList: [newAnime] })
+      console.log("only one")
+    } else if (!this.state.myWatchList.includes(newAnime)) {
+      console.log("over one")
+      this.setState({myWatchList: [...this.state.myWatchList, newAnime]})
     }
   }
 
