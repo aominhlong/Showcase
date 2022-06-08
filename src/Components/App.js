@@ -10,7 +10,7 @@ class App extends Component {
     this.state={
       allAnime: [],
       searchedAnime: [],
-      myFavorites: [],
+      myWatchList: [],
       userInput: ''
     }
   }
@@ -33,17 +33,29 @@ class App extends Component {
     this.setState({ searchedAnime: filteredAnime })
   }
 
+  addToWatchList = (title) => {
+    console.log(title)
+    const newAnime = this.state.allAnime.find(anime => {
+      return anime.title.toLowerCase().includes(title.toLowerCase())
+    })
+    if (this.state.myWatchList.length < 1 && this.state.myWatchList.includes(newAnime)) {
+      this.setState({ myWatchList: newAnime })
+    } else {
+      this.setState({myWatchList : [this.state.myWatchList, newAnime]})
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <Form searchAnime={ this.handleChange } input={ this.state.userInput }/>
         <Route exact path="/" render={() => {
           if (!this.state.searchedAnime.length && !this.state.userInput) {
-            return   <AnimeContainer anime={ this.state.allAnime }/>
+            return   <AnimeContainer anime={ this.state.allAnime } addToWatchList={this.addToWatchList}/>
           } else if (!this.state.searchedAnime.length) {
             return <h1 className='no-search-result'>{`Sorry, '${this.state.userInput}' was not found. Please try again later.`}</h1>
           } else {
-            return <AnimeContainer anime={ this.state.searchedAnime } />
+            return <AnimeContainer anime={ this.state.searchedAnime } addToWatchList={this.addToWatchList}/>
           }
         }} />
       </div>
