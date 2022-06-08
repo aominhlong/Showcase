@@ -6,11 +6,11 @@ function AnimeContainer({ anime }) {
     console.log('anime', anime)
    
     const animeList = anime.map(specificAnime => {
+        console.log(specificAnime)
         return <Anime
             id={ anime.indexOf(specificAnime) }
             key={ anime.indexOf(specificAnime) }
-            title={ specificAnime.title }
-            // image={ }
+            animeInfo={ specificAnime }
         />
     })
 
