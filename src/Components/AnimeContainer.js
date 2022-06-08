@@ -15,7 +15,8 @@ function AnimeContainer({ anime }) {
     })
 
     return(
-        <div>
+        <div className='anime-container'>
+            
            { animeList }
         </div>
     )
