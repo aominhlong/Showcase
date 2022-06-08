@@ -2,7 +2,7 @@ import React from 'react';
 import '../Styling/Anime.css';
 
 function Anime({ animeInfo, id }) {
-    console.log(animeInfo.genre)
+    // console.log(animeInfo.genre)
     return(
         <div className='anime-card' id={ id }>
             <img src={ animeInfo.image } alt={ animeInfo.title + 'poster'} />

@@ -7,7 +7,10 @@ class App extends Component {
   constructor() {
     super()
     this.state={
-      allAnime: []
+      allAnime: [],
+      searchedAnime: [],
+      myFavorites: [],
+      userInput: ''
     }
   }
 
@@ -17,10 +20,22 @@ class App extends Component {
     .then(data => this.setState({ allAnime: data }))
   }
 
+  clearInput = () => {
+    this.setState({ userInput: '' })
+  }
+
+  handleChange = (event) => {
+    this.setState({userInput: event.target.value, searchedAnime: this.allAnime})
+    const filteredAnime = this.state.allAnime.filter(anime => {
+      return anime.title.toLowerCase().includes(event.target.value.toLowerCase())
+    })
+    this.setState({searchedAnime: filteredAnime})
+  }
+
   render() {
     return (
       <div className="App">
-        <Form />
+        <Form searchAnime={this.handleChange} input={this.state.userInput}/>
         <AnimeContainer anime={ this.state.allAnime }/>
       </div>
     );
