@@ -84,16 +84,16 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => {
             if (!this.state.searchedAnime.length && !this.state.userInput) {
-              return   <AnimeContainer anime={ this.state.allAnime } addToWatchList={this.addToWatchList} myWatchList={this.state.myWatchList}/>
+              return   <AnimeContainer anime={ this.state.allAnime } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList }/>
             } else if (!this.state.searchedAnime.length) {
               return <h1 className='no-search-result'>{`Sorry, '${this.state.userInput}' was not found. Please try again later.`}</h1>
             } else {
-              return <AnimeContainer anime={ this.state.searchedAnime } addToWatchList={this.addToWatchList} myWatchList={this.state.myWatchList}/>
+              return <AnimeContainer anime={ this.state.searchedAnime } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList }/>
             }
           }} />
           <Route path="/watch-list" render={() => {
             console.log('hi')
-            return <AnimeContainer anime={ this.state.myWatchList } addToWatchList={this.addToWatchList} myWatchList={this.state.myWatchList}/>
+            return <AnimeContainer anime={ this.state.myWatchList } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList }/>
           }} />
         </Switch>
       </div>
