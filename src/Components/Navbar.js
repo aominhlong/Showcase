@@ -18,6 +18,9 @@ function Navbar({ chooseGenre, chooseMostPopular }) {
                     </div>
             </div>
             <button className='popular-btn' onClick={() => chooseMostPopular()}>Popular</button>
+            <Link to='/watch-list'>
+                <button className='my-watch-list-btn'>My list</button>
+            </Link>
         </div>
     )
 }
