@@ -2,6 +2,7 @@ import '../Styling/App.css';
 import React, { Component } from 'react';
 import AnimeContainer from './AnimeContainer'
 import Form from './Form';
+import Navbar from './Navbar'
 import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
@@ -11,19 +12,19 @@ class App extends Component {
       allAnime: [],
       searchedAnime: [],
       myWatchList: [],
-      userInput: ''
+      userInput: '',
+      onWatchList: false
     }
   }
 
   componentDidMount() {
-    console.log('heck')
     fetch('http://localhost:3001/api/v1/anime')
     .then(res => res.json())
     .then(data => this.setState({ allAnime: data.animeList, myWatchList: data.userWatchList }))
   }
 
-  clearInput = () => {
-    this.setState({ userInput: '' })
+  clearSearchedAnime = () => {
+    this.setState({ userInput: '', searchedAnime: [] })
   }
 
   handleChange = (event) => {
@@ -34,11 +35,25 @@ class App extends Component {
     this.setState({ searchedAnime: filteredAnime })
   }
 
+  chooseGenre = (event) => {
+    const filteredGenre = this.state.allAnime.filter(anime => anime.genre.includes(event.target.id)
+    )
+    this.setState({ searchedAnime: filteredGenre })
+  }
+
+  chooseMostPopular = () => {
+    const animeList = Array.from(this.state.allAnime)
+    const sortPopularity = animeList.sort((a, b) => {
+      return b.rating - a.rating
+    })
+    this.setState({ searchedAnime: sortPopularity })
+  }
+
   addToWatchList = (title) => {
     const newAnime = this.state.allAnime.find(anime => {
-      return anime.title.toLowerCase().includes(title.toLowerCase())
+      return anime.title.toLowerCase() === title.toLowerCase()
     })
-    
+  
     if (this.state.myWatchList.length < 1 && !this.state.myWatchList.includes(newAnime)) {
       this.setState({ myWatchList: [newAnime] })
 
@@ -54,7 +69,7 @@ class App extends Component {
       headers: {
         'Content-Type': 'application/json'
       }
-      }).then(data => console.log('if triggered'))
+      })
 
     } else if (!this.state.myWatchList.includes(newAnime)) {
       this.setState({ myWatchList: [...this.state.myWatchList, newAnime] })
@@ -71,46 +86,33 @@ class App extends Component {
       headers: {
         'Content-Type': 'application/json'
       }
-      }).then(data => console.log('else if triggered'))
+      })
     }
-    
-    // if(this.state.myWatchList.includes(newAnime)){
-    //   console.log('already here')
-    // } else {
-    //   fetch(`http://localhost:3001/api/v1/anime`, {
-    //   method: 'POST',
-    //   body: JSON.stringify({
-    //     "title": newAnime.title,
-    //     "image": newAnime.image,
-    //     "rating": newAnime.rating,
-    //     "runtime": newAnime.runtime,
-    //     "genre": newAnime.genre
-    //   }),
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    //   })
-    // } 
-
   }
 
   render() {
     return (
       <div className="App">
-        <Form searchAnime={ this.handleChange } input={ this.state.userInput }/>
+        <Form searchAnime={ this.handleChange } input={ this.state.userInput } clearSearchedAnime={ this.clearSearchedAnime } />
+        
         <Switch>
           <Route exact path="/" render={() => {
             if (!this.state.searchedAnime.length && !this.state.userInput) {
-              return   <AnimeContainer anime={ this.state.allAnime } addToWatchList={this.addToWatchList} myWatchList={this.state.myWatchList}/>
+              return   <div>
+                <Navbar chooseGenre={this.chooseGenre} chooseMostPopular={this.chooseMostPopular} />
+                <AnimeContainer anime={ this.state.allAnime } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList }/>
+                </div>
             } else if (!this.state.searchedAnime.length) {
               return <h1 className='no-search-result'>{`Sorry, '${this.state.userInput}' was not found. Please try again later.`}</h1>
             } else {
-              return <AnimeContainer anime={ this.state.searchedAnime } addToWatchList={this.addToWatchList} myWatchList={this.state.myWatchList}/>
+              return <div>
+                <Navbar chooseGenre={this.chooseGenre} chooseMostPopular={this.chooseMostPopular} />
+                <AnimeContainer anime={ this.state.searchedAnime } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList }/>
+                </div>
             }
           }} />
           <Route path="/watch-list" render={() => {
-            console.log('hi')
-            return <AnimeContainer anime={ this.state.myWatchList } addToWatchList={this.addToWatchList} myWatchList={this.state.myWatchList}/>
+            return <AnimeContainer anime={ this.state.myWatchList } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList }/>
           }} />
         </Switch>
       </div>

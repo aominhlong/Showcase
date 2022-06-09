@@ -14,10 +14,28 @@
     
 }
 
-.anime-container {
-    border: 2px solid red;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
+@media screen and (max-width: 767px) {
+    .anime-container {
+        border: 2px solid red;
+        display: grid;
+        padding: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 1.5rem;
+        grid-row-gap: 4rem;
+        justify-content: space-evenly;
+        justify-items: center;
+        align-content: space-evenly;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 525px) {
+    .anime-container {
+        border: 2px solid red;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+    } 
+
 }

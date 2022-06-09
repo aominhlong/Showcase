@@ -34,7 +34,7 @@ h1, h4, h5 {
     }
 
     .anime-card {
-        height: 43rem;
+        height: 30rem;
         width: 15rem;
         border: 2px solid red;
         display: flex;
@@ -49,12 +49,11 @@ h1, h4, h5 {
         /* align-items: center;
         justify-content: center; */
         flex-direction: column;
-        margin: none;
     }
     
     h1, h4, h5 {
         font-size: .8rem;
         border: 2px solid green;
-        margin: 0;
+        margin: 0.1rem;
     }
 }
