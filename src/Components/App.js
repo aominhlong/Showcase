@@ -2,6 +2,7 @@ import '../Styling/App.css';
 import React, { Component } from 'react';
 import AnimeContainer from './AnimeContainer'
 import Form from './Form';
+import Navbar from './Navbar'
 import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
@@ -16,7 +17,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log('heck')
     fetch('http://localhost:3001/api/v1/anime')
     .then(res => res.json())
     .then(data => this.setState({ allAnime: data.animeList, myWatchList: data.userWatchList }))
@@ -54,7 +54,7 @@ class App extends Component {
       headers: {
         'Content-Type': 'application/json'
       }
-      }).then(data => console.log('if triggered'))
+      })
 
     } else if (!this.state.myWatchList.includes(newAnime)) {
       this.setState({ myWatchList: [...this.state.myWatchList, newAnime] })
@@ -71,26 +71,8 @@ class App extends Component {
       headers: {
         'Content-Type': 'application/json'
       }
-      }).then(data => console.log('else if triggered'))
+      })
     }
-    
-    // if(this.state.myWatchList.includes(newAnime)){
-    //   console.log('already here')
-    // } else {
-    //   fetch(`http://localhost:3001/api/v1/anime`, {
-    //   method: 'POST',
-    //   body: JSON.stringify({
-    //     "title": newAnime.title,
-    //     "image": newAnime.image,
-    //     "rating": newAnime.rating,
-    //     "runtime": newAnime.runtime,
-    //     "genre": newAnime.genre
-    //   }),
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    //   })
-    // } 
 
   }
 
@@ -98,6 +80,7 @@ class App extends Component {
     return (
       <div className="App">
         <Form searchAnime={ this.handleChange } input={ this.state.userInput }/>
+        <Navbar />
         <Switch>
           <Route exact path="/" render={() => {
             if (!this.state.searchedAnime.length && !this.state.userInput) {
