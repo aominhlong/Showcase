@@ -2,7 +2,7 @@ import React from 'react';
 import '../Styling/Navbar.css'
 import { Link } from 'react-router-dom';
 
-function Navbar({ chooseGenre, clearSearchedAnime }) {
+function Navbar({ chooseGenre, clearSearchedAnime, chooseMostPopular }) {
     return(
         <div className='navbar'>
             <Link to='/'>
@@ -19,7 +19,8 @@ function Navbar({ chooseGenre, clearSearchedAnime }) {
                         <a href='#' id='Fantasy' onClick={(event => chooseGenre(event))}>Fantasy</a>
                         <a href='#' id='Sci-Fi' onClick={(event => chooseGenre(event))}>Sci-Fi</a>
                     </div>
-                </div>
+            </div>
+            <button className='popular-btn' onClick={() => chooseMostPopular()}>Popular</button>
         </div>
     )
 }
