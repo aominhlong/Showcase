@@ -16,9 +16,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log('heck')
     fetch('http://localhost:3001/api/v1/anime')
     .then(res => res.json())
-    .then(data => this.setState({ allAnime: data }))
+    .then(data => this.setState({ allAnime: data.animeList, searchedAnime: data.userWatchList }))
   }
 
   clearInput = () => {
@@ -26,7 +27,7 @@ class App extends Component {
   }
 
   handleChange = (event) => {
-    this.setState({userInput: event.target.value, searchedAnime: this.allAnime})
+    this.setState({ userInput: event.target.value, searchedAnime: this.allAnime })
     const filteredAnime = this.state.allAnime.filter(anime => {
       return anime.title.toLowerCase().includes(event.target.value.toLowerCase())
     })
@@ -37,12 +38,25 @@ class App extends Component {
     const newAnime = this.state.allAnime.find(anime => {
       return anime.title.toLowerCase().includes(title.toLowerCase())
     })
+
+    fetch(`http://localhost:3001/api/v1/anime`, {
+      method: 'POST',
+      body: JSON.stringify({
+        "title": newAnime.title,
+        "image": newAnime.image,
+        "rating": newAnime.rating,
+        "runtime": newAnime.runtime,
+        "genre": newAnime.genre
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
     if (this.state.myWatchList.length < 1 && !this.state.myWatchList.includes(newAnime)) {
       this.setState({ myWatchList: [newAnime] })
-      console.log("only one")
     } else if (!this.state.myWatchList.includes(newAnime)) {
-      console.log("over one")
-      this.setState({myWatchList: [...this.state.myWatchList, newAnime]})
+      this.setState({ myWatchList: [...this.state.myWatchList, newAnime] })
     }
   }
 
@@ -58,6 +72,10 @@ class App extends Component {
           } else {
             return <AnimeContainer anime={ this.state.searchedAnime } addToWatchList={this.addToWatchList}/>
           }
+        }} />
+        <Route path="/watch-list" render={() => {
+          console.log('hi')
+          return <AnimeContainer anime={ this.state.myWatchList } addToWatchList={this.addToWatchList}/>
         }} />
       </div>
     )
