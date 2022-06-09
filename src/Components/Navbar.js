@@ -2,12 +2,9 @@ import React from 'react';
 import '../Styling/Navbar.css'
 import { Link } from 'react-router-dom';
 
-function Navbar({ chooseGenre, clearSearchedAnime, chooseMostPopular }) {
+function Navbar({ chooseGenre, chooseMostPopular }) {
     return(
         <div className='navbar'>
-            <Link to='/'>
-                <button className='home-btn' onClick={() => clearSearchedAnime()}>Home</button>
-            </Link>
             <div className='dropdown'>
                     <button className='categories'>Genre</button>
                     <div className='dropdown-content'>
