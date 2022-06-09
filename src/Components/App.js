@@ -22,8 +22,8 @@ class App extends Component {
     .then(data => this.setState({ allAnime: data.animeList, myWatchList: data.userWatchList }))
   }
 
-  clearInput = () => {
-    this.setState({ userInput: '' })
+  clearSearchedAnime = () => {
+    this.setState({ userInput: '', searchedAnime: [] })
   }
 
   handleChange = (event) => {
@@ -32,6 +32,15 @@ class App extends Component {
       return anime.title.toLowerCase().includes(event.target.value.toLowerCase())
     })
     this.setState({ searchedAnime: filteredAnime })
+  }
+
+  chooseGenre = (event) => {
+    this.setState({ searchedAnime: this.allAnime })
+
+    const filteredGenre = this.state.allAnime.filter(anime => anime.genre.includes(event.target.id)
+    )
+    this.setState({ searchedAnime: filteredGenre })
+
   }
 
   addToWatchList = (title) => {
@@ -82,8 +91,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Form searchAnime={ this.handleChange } input={ this.state.userInput }/>
-        <Navbar />
+        <Form searchAnime={ this.handleChange } input={ this.state.userInput } />
+        <Navbar chooseGenre={this.chooseGenre} clearSearchedAnime={ this.clearSearchedAnime } />
         <Switch>
           <Route exact path="/" render={() => {
             if (!this.state.searchedAnime.length && !this.state.userInput) {
