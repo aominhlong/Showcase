@@ -8,7 +8,18 @@ function Navbar() {
             <Link to='/'>
                 <button className='home-btn'>Home</button>
             </Link>
-            <button>genre</button>
+            <div className='dropdown'>
+                    <button className='categories'>Genre</button>
+                    <div className='dropdown-content'>
+                        <a href='#' id='Action'>Action</a>
+                        <a href='#' id='Comedy'>Comedy</a>
+                        <a href='#' id='Adventure'>Adventure</a>
+                        <a href='#' id='Drama'>Drama</a>
+                        <a href='#' id='Sport'>Sport</a>
+                        <a href='#' id='Fantasy'>Fantasy</a>
+                        <a href='#' id='Sci-Fi'>Sci-Fi</a>
+                    </div>
+                </div>
         </div>
     )
 }

@@ -5,3 +5,33 @@
     align-items: center;
     gap: 3%;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f8f7f7;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content > a {
+    color: black;
+    background: #e9e8e8;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+.dropdown-content > a:hover {
+    border-bottom: 2px solid rgb(224, 136, 28);
+    background-color: #f1f1f1
+}
+
+.dropdown:hover > .dropdown-content {
+    display: block;
+}
