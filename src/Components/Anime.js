@@ -1,15 +1,18 @@
 import React from 'react';
 import '../Styling/Anime.css';
 
-function Anime({ animeInfo, id }) {
-    // console.log(animeInfo.genre)
+function Anime({ animeInfo, id, addToWatchList, myWatchList }) {
+    const myWatchListTitles = myWatchList.map(anime => anime.title)
     return(
-        <div className='anime-card' id={ id }>
+        <div className='anime-card' id={ animeInfo.title }>
             <img src={ animeInfo.image } alt={ animeInfo.title + 'poster'} />
             <div className='anime-details'>
                 <h1>{ animeInfo.title }</h1>
                 <h4>rating: { animeInfo.rating }</h4>
                 <h5>{ animeInfo.genre.join(', ') }</h5>
+                { myWatchListTitles.includes(animeInfo.title) ? <h5>"Anime is in your watch list"</h5> : 
+                <button onClick={(() => addToWatchList(animeInfo.title))}>+</button> }
+                {/* <button onClick={(() => addToWatchList(animeInfo.title))}>+</button> */}
             </div>
         </div>
     )
