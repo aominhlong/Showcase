@@ -2,6 +2,22 @@
     height: 100vh;
 }
 
+.random-anime{
+    display: none;
+}
+
+@media screen and (min-width: 1143px){
+    .random-anime{
+        display: block;
+    }
+
+    .homepage{
+        display: flex;
+        flex-direction: row;
+        border: 2px solid green;
+    }
+}
+
 @media screen and (max-width: 415px){ 
     .App {
         width: 375px;
