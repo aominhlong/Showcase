@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Styling/Anime.css';
 
-function Anime({ animeInfo, id, addToWatchList, myWatchList }) {
+function Anime({ animeInfo, id, addToWatchList, myWatchList, deleteFromWatchList }) {
     const myWatchListTitles = myWatchList.map(anime => anime.title)
     return(
         <div className='anime-card' id={ animeInfo.title }>
@@ -12,6 +12,7 @@ function Anime({ animeInfo, id, addToWatchList, myWatchList }) {
                 <h5>{ animeInfo.genre.join(', ') }</h5>
                 { myWatchListTitles.includes(animeInfo.title) ? <h5>"Anime is in your watch list"</h5> : 
                 <button onClick={(() => addToWatchList(animeInfo.title))}>Add Anime to Watchlist</button> }
+                { myWatchListTitles.includes(animeInfo.title) && <button onClick={(() => deleteFromWatchList(animeInfo.title))}>Remove from your Watchlist</button>}
             </div>
         </div>
     )
