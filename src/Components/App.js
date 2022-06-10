@@ -4,6 +4,7 @@ import AnimeContainer from './AnimeContainer'
 import Form from './Form';
 import Navbar from './Navbar'
 import { Route, Switch } from 'react-router-dom';
+import RandomAnime from './RandomAnime';
 
 class App extends Component {
   constructor() {
@@ -98,9 +99,10 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => {
             if (!this.state.searchedAnime.length && !this.state.userInput) {
-              return   <div>
+              return   <div class='homepage'>
                 <Navbar chooseGenre={this.chooseGenre} chooseMostPopular={this.chooseMostPopular} />
                 <AnimeContainer anime={ this.state.allAnime } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList }/>
+                <RandomAnime />
                 </div>
             } else if (!this.state.searchedAnime.length) {
               return <h1 className='no-search-result'>{`Sorry, '${this.state.userInput}' was not found. Please try again later.`}</h1>
