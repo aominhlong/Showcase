@@ -12,7 +12,6 @@ function Anime({ animeInfo, id, addToWatchList, myWatchList }) {
                 <h5>{ animeInfo.genre.join(', ') }</h5>
                 { myWatchListTitles.includes(animeInfo.title) ? <h5>"Anime is in your watch list"</h5> : 
                 <button onClick={(() => addToWatchList(animeInfo.title))}>+</button> }
-                {/* <button onClick={(() => addToWatchList(animeInfo.title))}>+</button> */}
             </div>
         </div>
     )

@@ -108,13 +108,13 @@ class App extends Component {
             if (!this.state.searchedAnime.length && !this.state.userInput) {
               return <div>
                 <Navbar chooseGenre={this.chooseGenre} chooseMostPopular={this.chooseMostPopular} />
-                  <div className='homepage'>
-                    <AnimeContainer anime={ this.state.allAnime } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList }/>
-                    <div className='random-anime'>
-                      <h2>hi</h2>
-                      <RandomAnime />
-                    </div>
+                <div className='homepage'>
+                  <AnimeContainer anime={ this.state.allAnime } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList }/>
+                  <div className='spacer'></div>
+                  <div className='random-anime'>
+                    <RandomAnime randomAnime={this.state.randomAnime} />
                   </div>
+                </div>
                 </div>
             } else if (!this.state.searchedAnime.length) {
               return <h1 className='no-search-result'>{`Sorry, '${this.state.userInput}' was not found. Please try again later.`}</h1>

@@ -1,0 +1,29 @@
+.random-anime {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    margin-left: 0.8rem;
+}
+
+.pick-of-the-day {
+    font-size: 300%;
+}
+
+.random-anime > img {
+    border: 2px solid blue;
+    /* height: 40.3rem; */
+    height: 60%;
+    /* width: 28.5rem; */
+    width: 53%;
+}
+
+.random-anime-title {
+    border: 2px solid green;
+    font-size: 200%;
+}
+
+.random-anime > p {
+    border: 2px solid red;
+}
+

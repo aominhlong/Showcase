@@ -6,9 +6,17 @@
     display: none;
 }
 
+
 @media screen and (min-width: 1143px){
     .random-anime{
         display: block;
+    }
+
+    .spacer{
+        border: 2px solid orange;
+        background-color: orange;
+        margin-top: 0.6rem;
+        margin-bottom: 0.6rem;
     }
 
     .homepage{
@@ -22,5 +30,9 @@
     .App {
         width: 375px;
         height: 667px;
+    }
+
+    .spacer{
+        display: none;
     }
 }
