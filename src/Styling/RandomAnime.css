@@ -1,0 +1,41 @@
+.random-anime {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 0.8rem;
+}
+
+.pick-of-the-day {
+    font-size: 300%;
+}
+
+.random-anime-img {
+    position: relative;
+    height: 60%;
+    width: 53%;
+}
+
+.random-anime-title {
+    font-size:larger;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    height: center
+}
+
+.random-anime-genre {
+    /* border: 2px solid red; */
+}
+
+.random-anime-synopsys {
+    border: 1px solid rgb(195, 195, 205);
+    padding: 3%;
+    margin-right: 1.2rem;
+    font-size: 120%;
+    height: 40%
+}
+
+.add-random-anime {
+    margin-top: 3%;
+}
+

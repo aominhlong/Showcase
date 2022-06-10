@@ -2,9 +2,37 @@
     height: 100vh;
 }
 
+.random-anime{
+    display: none;
+}
+
+
+@media screen and (min-width: 1143px){
+    .random-anime{
+        display: block;
+    }
+
+    .divider{
+        border: 2px solid orange;
+        background-color: orange;
+        margin-top: 0.6rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .homepage{
+        display: flex;
+        flex-direction: row;
+        border: 2px solid green;
+    }
+}
+
 @media screen and (max-width: 415px){ 
     .App {
         width: 375px;
         height: 667px;
+    }
+
+    .spacer{
+        display: none;
     }
 }

@@ -4,6 +4,7 @@ import AnimeContainer from './AnimeContainer'
 import Form from './Form';
 import Navbar from './Navbar'
 import { Route, Switch } from 'react-router-dom';
+import RandomAnime from './RandomAnime';
 
 class App extends Component {
   constructor() {
@@ -12,15 +13,22 @@ class App extends Component {
       allAnime: [],
       searchedAnime: [],
       myWatchList: [],
+      randomAnime: {},
       userInput: '',
       onWatchList: false
     }
   }
 
+  getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+
   componentDidMount() {
     fetch('http://localhost:3001/api/v1/anime')
     .then(res => res.json())
-    .then(data => this.setState({ allAnime: data.animeList, myWatchList: data.userWatchList }))
+    .then(data => this.setState({ allAnime: data.animeList, myWatchList: data.userWatchList, randomAnime: data.animeList[this.getRandomIntInclusive(0, data.animeList.length)] }))
   }
 
   clearSearchedAnime = () => {
@@ -36,8 +44,7 @@ class App extends Component {
   }
 
   chooseGenre = (event) => {
-    const filteredGenre = this.state.allAnime.filter(anime => anime.genre.includes(event.target.id)
-    )
+    const filteredGenre = this.state.allAnime.filter(anime => anime.genre.includes(event.target.id))
     this.setState({ searchedAnime: filteredGenre })
   }
 
@@ -98,9 +105,15 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => {
             if (!this.state.searchedAnime.length && !this.state.userInput) {
-              return   <div>
+              return <div>
                 <Navbar chooseGenre={this.chooseGenre} chooseMostPopular={this.chooseMostPopular} />
-                <AnimeContainer anime={ this.state.allAnime } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList }/>
+                <div className='homepage'>
+                  <AnimeContainer anime={ this.state.allAnime } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList }/>
+                  <div className='divider'></div>
+                  <div className='random-anime'>
+                    <RandomAnime randomAnime={ this.state.randomAnime } myWatchList={ this.state.myWatchList } addToWatchList={ this.addToWatchList } />
+                  </div>
+                </div>
                 </div>
             } else if (!this.state.searchedAnime.length) {
               return <h1 className='no-search-result'>{`Sorry, '${this.state.userInput}' was not found. Please try again later.`}</h1>
