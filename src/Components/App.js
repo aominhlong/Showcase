@@ -44,8 +44,7 @@ class App extends Component {
   }
 
   chooseGenre = (event) => {
-    const filteredGenre = this.state.allAnime.filter(anime => anime.genre.includes(event.target.id)
-    )
+    const filteredGenre = this.state.allAnime.filter(anime => anime.genre.includes(event.target.id))
     this.setState({ searchedAnime: filteredGenre })
   }
 
@@ -110,9 +109,9 @@ class App extends Component {
                 <Navbar chooseGenre={this.chooseGenre} chooseMostPopular={this.chooseMostPopular} />
                 <div className='homepage'>
                   <AnimeContainer anime={ this.state.allAnime } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList }/>
-                  <div className='spacer'></div>
+                  <div className='divider'></div>
                   <div className='random-anime'>
-                    <RandomAnime randomAnime={this.state.randomAnime} />
+                    <RandomAnime randomAnime={ this.state.randomAnime } myWatchList={ this.state.myWatchList } addToWatchList={ this.addToWatchList } />
                   </div>
                 </div>
                 </div>

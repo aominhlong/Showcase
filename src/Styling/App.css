@@ -12,7 +12,7 @@
         display: block;
     }
 
-    .spacer{
+    .divider{
         border: 2px solid orange;
         background-color: orange;
         margin-top: 0.6rem;
