@@ -96,7 +96,35 @@ class App extends Component {
       })
     }
   }
-
+  
+  deleteFromWatchList = (title) => {
+    const foundAnime = this.state.allAnime.find(anime => {
+      return anime.title.toLowerCase() === title.toLowerCase()
+    })
+    console.log(title)
+    fetch(`http://localhost:3001/api/v1/anime`, {
+      method: 'DELETE',
+      body: JSON.stringify({
+        "title": foundAnime.title,
+        "image": foundAnime.image,
+        "rating": foundAnime.rating,
+        "runtime": foundAnime.runtime,
+        "genre": foundAnime.genre
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+      })
+      .catch(err => {
+        console.log(err)
+      })
+      .then(data => {
+        fetch('http://localhost:3001/api/v1/anime')
+      .then(res => res.json())
+      .then(data => this.setState({ myWatchList: data.userWatchList }))
+      })
+  }
+  
   render() {
     return (
       <div className="App">
@@ -108,7 +136,7 @@ class App extends Component {
               return <div>
                 <Navbar chooseGenre={this.chooseGenre} chooseMostPopular={this.chooseMostPopular} />
                 <div className='homepage'>
-                  <AnimeContainer anime={ this.state.allAnime } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList }/>
+                  <AnimeContainer anime={ this.state.allAnime } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList } deleteFromWatchList={ this.deleteFromWatchList }/>
                   <div className='divider'></div>
                   <div className='random-anime'>
                     <RandomAnime randomAnime={ this.state.randomAnime } myWatchList={ this.state.myWatchList } addToWatchList={ this.addToWatchList } />
@@ -120,12 +148,12 @@ class App extends Component {
             } else {
               return <div>
                 <Navbar chooseGenre={this.chooseGenre} chooseMostPopular={this.chooseMostPopular} />
-                <AnimeContainer anime={ this.state.searchedAnime } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList }/>
+                <AnimeContainer anime={ this.state.searchedAnime } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList } deleteFromWatchList={ this.deleteFromWatchList }/>
                 </div>
             }
           }} />
           <Route path="/watch-list" render={() => {
-            return <AnimeContainer anime={ this.state.myWatchList } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList }/>
+            return <AnimeContainer anime={ this.state.myWatchList } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList } deleteFromWatchList={ this.deleteFromWatchList }/>
           }} />
         </Switch>
       </div>
