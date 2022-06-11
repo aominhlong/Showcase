@@ -7,6 +7,14 @@
 }
 
 
+.no-search-results,
+.get-error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 @media screen and (min-width: 1143px){
     .random-anime{
         display: block;
@@ -42,3 +50,4 @@
         width: 100%;
     }
 }
+
