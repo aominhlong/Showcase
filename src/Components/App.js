@@ -153,8 +153,7 @@ class App extends Component {
       .catch(err => {
         this.setState({error: `Failed to delete from ${err}`})
       })
-      .then(() =>
-        fetch('https://anime-api-showcase.herokuapp.com/api/v1/anime'))
+      .then(() => fetch('https://anime-api-showcase.herokuapp.com/api/v1/anime'))
       .then(res => {
         if (res.ok) {
           return res.json()
@@ -202,9 +201,9 @@ class App extends Component {
               )
             } else {
               return (
-              <div>
-                <Navbar chooseGenre={this.chooseGenre} chooseMostPopular={this.chooseMostPopular} />
-                <AnimeContainer anime={ this.state.searchedAnime } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList } deleteFromWatchList={ this.deleteFromWatchList }/>
+                <div>
+                  <Navbar chooseGenre={this.chooseGenre} chooseMostPopular={this.chooseMostPopular} />
+                  <AnimeContainer anime={ this.state.searchedAnime } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList } deleteFromWatchList={ this.deleteFromWatchList }/>
                 </div>
               )
             }
@@ -218,12 +217,13 @@ class App extends Component {
             if (this.state.error=true) {
               return <ErrorPage />
             }
-          }}>
-          </Route>          
-
-            <Route path="/something-wrong" render={() => {
+          }} />
+             
+          <Route path="/something-wrong" render={() => {
             return <ErrorPage />
-          }}></Route>
+          }}>
+          </Route>
+          
           <Redirect to='/something-wrong'>
             </Redirect>
           
