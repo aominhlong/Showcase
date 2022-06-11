@@ -3,12 +3,8 @@ import '../Styling/RandomAnime.css';
 import ErrorPage from './ErrorPage';
 
 function RandomAnime({ randomAnime, addToWatchList, myWatchList }) {
-    if (!randomAnime.genre) {
-        return(
-            <h1>Loading..</h1>
-        )
-    }
-    if (randomAnime.genre && randomAnime.title) {
+    if (Object.keys(randomAnime).length) {
+        console.log(randomAnime)
         const foundAnime = myWatchList.filter(anime => {
             return anime.title === randomAnime.title })
         return(

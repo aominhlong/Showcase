@@ -182,7 +182,7 @@ class App extends Component {
         
         <Switch>
           <Route exact path="/" render={() => {
-            if (!this.state.searchedAnime.length && !this.state.userInput) {
+            if (!this.state.searchedAnime.length && !this.state.userInput && this.state.randomAnime) {
               return <div>
                 <Navbar chooseGenre={this.chooseGenre} chooseMostPopular={this.chooseMostPopular} />
                 <div className='homepage'>
