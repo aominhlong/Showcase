@@ -1,7 +1,13 @@
 import React from 'react';
 import '../Styling/RandomAnime.css';
+import ErrorPage from './ErrorPage';
 
 function RandomAnime({ randomAnime, addToWatchList, myWatchList }) {
+    if (!randomAnime.genre) {
+        return(
+            <></>
+        )
+    }
     if (randomAnime.genre && randomAnime.title) {
         const foundAnime = myWatchList.filter(anime => {
             return anime.title === randomAnime.title })
@@ -18,7 +24,7 @@ function RandomAnime({ randomAnime, addToWatchList, myWatchList }) {
                 <p className='random-anime-genre'>({ randomAnime.genre.join(', ') })</p>
             </div>
         )
-    }
+    } 
 }
 
 export default RandomAnime;
