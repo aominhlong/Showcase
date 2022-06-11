@@ -209,7 +209,7 @@ class App extends Component {
               )
             }
           }} />
-        </Switch>
+         
           <Route path="/watch-list" render={() => {
             return <AnimeContainer anime={ this.state.myWatchList } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList } deleteFromWatchList={ this.deleteFromWatchList }/>
           }} />
@@ -220,7 +220,16 @@ class App extends Component {
             }
           }}>
           </Route>
+
+           {/* use /Redirect ex:
           
+          <Redirect path='/bad-url'>
+          <Route path="/404/">
+          
+          
+          */}
+          
+    </Switch>
       </div>
     )
     }

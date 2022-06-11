@@ -16,7 +16,6 @@ function AnimeContainer({ anime, addToWatchList, myWatchList, deleteFromWatchLis
 
     return(
         <div className='anime-container'>
-            
            { animeList }
         </div>
     )
