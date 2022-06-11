@@ -133,7 +133,6 @@ class App extends Component {
     const foundAnime = this.state.allAnime.find(anime => {
       return anime.title.toLowerCase() === title.toLowerCase()
     })
-    console.log(title)
     fetch(`https://anime-api-showcase.herokuapp.com/api/v1/anime`, {
       method: 'DELETE',
       body: JSON.stringify({
@@ -146,6 +145,13 @@ class App extends Component {
       headers: {
         'Content-Type': 'application/json'
       }
+      })
+      .then(res => {if (!res.ok) {
+        throw Error(res.url)
+      }
+      })
+      .catch(err => {
+        this.setState({error: `Failed to delete from ${err}`})
       })
       .then(() =>
         fetch('https://anime-api-showcase.herokuapp.com/api/v1/anime'))
