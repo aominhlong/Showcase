@@ -1,0 +1,60 @@
+{
+    "animeList": [
+        {   
+            "title":"Your Name",
+            "image":"https://cdn.myanimelist.net/images/manga/1/182270l.jpg",
+            "rating": 8.40,
+            "runtime": "May 2016 - Jan 2017",
+            "episodes": 16,
+            "genre": [ "Supernatural", "Drama" ], 
+            "synopsis": "Mitsuha Miyamizu is a high school girl living in the countryside town of Itomori. She yearns for a life in Tokyo as she is sick of living in the countryside. At the same time, Taki Tachibana, a high school student, lives in Tokyo and has a great interest in architecture, aiming to become an urban planner in the near future. One day, Mitsuha dreams of herself as a boy living a life in the dense capital, while Taki dreams of living as a girl in the rural town of Itomori. As time passes by, the two discover that these are not just dreams, but that they actually swap bodies upon falling asleep! Kimi no Na wa. revolves around Mitsuha and Taki as they experience the supernatural. With both of them working together to deal with the strange phenomenon, how will this impact their everyday life?" 
+        },
+        {   
+            "title":"Attack on Titan The Final Season: Part II",
+            "image":"https://cdn.anime-planet.com/anime/primary/attack-on-titan-the-final-season-part-ii-1.webp?t=1640076824",
+            "rating": 8.85,
+            "runtime": "Jan 2022 - Apr 2022",
+            "episodes": 12,
+            "genre": [ "Action", "Drama" ],
+            "synopsis": "Turning against his former allies and enemies alike, Eren Yeager sets a disastrous plan in motion. Under the guidance of the Beast Titan, Zeke, Eren takes extreme measures to end the ancient conflict between Marley and Eldia—but his true intentions remain a mystery. Delving deep into his family's past, Eren fights to control his own destiny. Meanwhile, the long-feuding nations of Marley and Eldia utilize both soldiers and Titans in a brutal race to eliminate the other. Reiner Braun uses his own powers in a desperate bid to hold off Eren's own militaristic force, and his fellow Eldians—children Falco Grice and Gabi Braun—struggle to survive in the unfolding chaos."
+        },
+        {   
+            "title":"Demon Slayer: Kimetsu no Yaiba",
+            "image":"https://cdn.anime-planet.com/anime/primary/demon-slayer-kimetsu-no-yaiba-1.jpg?t=1625783509",
+            "rating": 8.55,
+            "runtime": "Apr 2019 - Sep 2019",
+            "episodes": 26,
+            "genre": [ "Action", "Fantasy" ],
+            "synopsis": "One day, Tanjirou decides to go down to the local village to make a little money selling charcoal. On his way back, night falls, forcing Tanjirou to take shelter in the house of a strange man, who warns him of the existence of flesh-eating demons that lurk in the woods at night. When he finally arrives back home the next day, he is met with a horrifying sight—his whole family has been slaughtered. Worse still, the sole survivor is his sister Nezuko, who has been turned into a bloodthirsty demon. Consumed by rage and hatred, Tanjirou swears to avenge his family and stay by his only remaining sibling. Alongside the mysterious group calling themselves the Demon Slayer Corps, Tanjirou will do whatever it takes to slay the demons and protect the remnants of his beloved sister's humanity."
+        },
+        {   
+            "title":"Hunter x Hunter (2011)",
+            "image":"https://cdn.anime-planet.com/anime/primary/hunter-x-hunter-2011-1.jpg?t=1625774966",
+            "rating": 9.05,
+            "runtime": "Oct 2011 - Sep 2014",
+            "episodes": 148,
+            "genre": [ "Action", "Adventure", "Fantasy" ],
+            "synopsis": "Hunters are specialized in a wide variety of fields, ranging from treasure hunting to cooking. They have access to otherwise unavailable funds and information that allow them to pursue their dreams and interests. However, being a hunter is a special privilege, only attained by taking a deadly exam with an extremely low success rate. Gon Freecss, a 12-year-old boy with the hope of finding his missing father, sets out on a quest to take the Hunter Exam. Along the way, he picks up three companions who also aim to take the dangerous test: the revenge-seeking Kurapika, aspiring doctor Leorio Paladiknight, and a mischievous child the same age as Gon, Killua Zoldyck."
+        }
+    ],
+    "userWatchList": [
+        {   
+            "title":"Attack on Titan The Final Season: Part II",
+            "image":"https://cdn.anime-planet.com/anime/primary/attack-on-titan-the-final-season-part-ii-1.webp?t=1640076824",
+            "rating": 8.85,
+            "runtime": "Jan 2022 - Apr 2022",
+            "episodes": 12,
+            "genre": [ "Action", "Drama" ],
+            "synopsis": "Turning against his former allies and enemies alike, Eren Yeager sets a disastrous plan in motion. Under the guidance of the Beast Titan, Zeke, Eren takes extreme measures to end the ancient conflict between Marley and Eldia—but his true intentions remain a mystery. Delving deep into his family's past, Eren fights to control his own destiny. Meanwhile, the long-feuding nations of Marley and Eldia utilize both soldiers and Titans in a brutal race to eliminate the other. Reiner Braun uses his own powers in a desperate bid to hold off Eren's own militaristic force, and his fellow Eldians—children Falco Grice and Gabi Braun—struggle to survive in the unfolding chaos."
+        },
+        {   
+            "title":"Demon Slayer: Kimetsu no Yaiba",
+            "image":"https://cdn.anime-planet.com/anime/primary/demon-slayer-kimetsu-no-yaiba-1.jpg?t=1625783509",
+            "rating": 8.55,
+            "runtime": "Apr 2019 - Sep 2019",
+            "episodes": 26,
+            "genre": [ "Action", "Fantasy" ],
+            "synopsis": "One day, Tanjirou decides to go down to the local village to make a little money selling charcoal. On his way back, night falls, forcing Tanjirou to take shelter in the house of a strange man, who warns him of the existence of flesh-eating demons that lurk in the woods at night. When he finally arrives back home the next day, he is met with a horrifying sight—his whole family has been slaughtered. Worse still, the sole survivor is his sister Nezuko, who has been turned into a bloodthirsty demon. Consumed by rage and hatred, Tanjirou swears to avenge his family and stay by his only remaining sibling. Alongside the mysterious group calling themselves the Demon Slayer Corps, Tanjirou will do whatever it takes to slay the demons and protect the remnants of his beloved sister's humanity."
+        }
+    ]
+}
