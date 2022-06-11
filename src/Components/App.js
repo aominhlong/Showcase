@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import AnimeContainer from './AnimeContainer'
 import Form from './Form';
 import Navbar from './Navbar'
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import RandomAnime from './RandomAnime';
 import ErrorPage from './ErrorPage';
 
@@ -219,15 +219,13 @@ class App extends Component {
               return <ErrorPage />
             }
           }}>
-          </Route>
+          </Route>          
 
-           {/* use /Redirect ex:
-          
-          <Redirect path='/bad-url'>
-          <Route path="/404/">
-          
-          
-          */}
+            <Route path="/something-wrong" render={() => {
+            return <ErrorPage />
+          }}></Route>
+          <Redirect to='/something-wrong'>
+            </Redirect>
           
     </Switch>
       </div>
