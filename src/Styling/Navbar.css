@@ -1,9 +1,11 @@
 .navbar {
-    border: 2px solid orange;
+    border-bottom: 2px solid orange;
     height: 3rem;
     display: flex;
     align-items: center;
-    gap: 3%;
+    /* gap: 3%; */
+    justify-content: space-around;
+
 }
 
 .dropdown {

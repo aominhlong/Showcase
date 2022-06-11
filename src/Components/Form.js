@@ -10,7 +10,7 @@ function Form({ input, searchAnime, clearSearchedAnime }) {
                  <Link to='/'>
                     <button className='home-btn' onClick={() => clearSearchedAnime()}>Home</button>
                  </Link>
-                 <input type='text' placeholder='search' value={input} onChange={(event => searchAnime(event))}></input>
+                 <input className='search-bar' type='text' placeholder='search' value={input} onChange={(event => searchAnime(event))}></input>
             </div>
         </div>
     )

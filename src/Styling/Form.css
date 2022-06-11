@@ -1,32 +1,48 @@
-@media screen and (max-width: 415px) {
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border: 2px solid  blue;
-        height: 6rem;
-    }
-    
-    .app-title {
-       font-size: 2rem;
-        width: 50%;
-        text-align: center;
-        justify-content: center;
-    }
-}
-
-
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border: 2px solid  blue;
     height: 6rem;
+    height: 100%;
 }
 
 .app-title {
-   font-size: 2rem;
+   font-size: 200%;
     width: 50%;
     text-align: center;
     justify-content: center;
 }
+
+.search-bar {
+    margin-right: 3%;
+    width: 20%;
+    height: 2rem;
+}
+
+@media screen and (max-width: 415px) {
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 2px solid  blue;
+        height: 3rem;
+    }
+    
+    .app-title {
+       font-size: 100%;
+        width: 40%;
+        height: 50%;
+        justify-content: center;
+    }
+
+    .search-bar {
+        height: 20%;
+    }
+
+}
+
+@media screen and (min-width: 1143px) {
+
+}
+
