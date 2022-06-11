@@ -5,7 +5,7 @@ import ErrorPage from './ErrorPage';
 function RandomAnime({ randomAnime, addToWatchList, myWatchList }) {
     if (!randomAnime.genre) {
         return(
-            <></>
+            <h1>Loading..</h1>
         )
     }
     if (randomAnime.genre && randomAnime.title) {
