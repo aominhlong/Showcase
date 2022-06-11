@@ -194,17 +194,19 @@ class App extends Component {
                 </div>
                 </div>
             } else if (!this.state.searchedAnime.length) {
-
-              return <div className='no-search-results'>
+              return (
+              <div className='no-search-results'>
                 <h1 className='no-search-result'>{`Sorry, '${this.state.userInput}' was not found. Please try again later.`}</h1>
                 <img src='https://media3.giphy.com/media/pYNhxuY2Xx528/giphy.gif?cid=ecf05e47teexkn1zyroa847859zf2kredlk9v8vg9q0o034h&rid=giphy.gif&ct=g' alt='My Neighbor Totoro Gif'></img>
               </div>
-
+              )
             } else {
-              return <div>
+              return (
+              <div>
                 <Navbar chooseGenre={this.chooseGenre} chooseMostPopular={this.chooseMostPopular} />
                 <AnimeContainer anime={ this.state.searchedAnime } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList } deleteFromWatchList={ this.deleteFromWatchList }/>
                 </div>
+              )
             }
           }} />
         </Switch>
