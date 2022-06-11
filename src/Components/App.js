@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import AnimeContainer from './AnimeContainer'
 import Form from './Form';
 import Navbar from './Navbar'
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import RandomAnime from './RandomAnime';
 
 class App extends Component {
@@ -26,7 +26,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/api/v1/anime')
+    fetch('https://anime-api-showcase.herokuapp.com/api/v1/anime')
     .then(res => res.json())
     .then(data => this.setState({ allAnime: data.animeList, myWatchList: data.userWatchList, randomAnime: data.animeList[this.getRandomIntInclusive(0, data.animeList.length)] }))
   }
@@ -64,7 +64,7 @@ class App extends Component {
     if (this.state.myWatchList.length < 1 && !this.state.myWatchList.includes(newAnime)) {
       this.setState({ myWatchList: [newAnime] })
 
-      fetch(`http://localhost:3001/api/v1/anime`, {
+      fetch(`https://anime-api-showcase.herokuapp.com/api/v1/anime`, {
       method: 'POST',
       body: JSON.stringify({
         "title": newAnime.title,
@@ -81,7 +81,7 @@ class App extends Component {
     } else if (!this.state.myWatchList.includes(newAnime)) {
       this.setState({ myWatchList: [...this.state.myWatchList, newAnime] })
 
-      fetch(`http://localhost:3001/api/v1/anime`, {
+      fetch(`https://anime-api-showcase.herokuapp.com/api/v1/anime`, {
       method: 'POST',
       body: JSON.stringify({
         "title": newAnime.title,
@@ -102,7 +102,7 @@ class App extends Component {
       return anime.title.toLowerCase() === title.toLowerCase()
     })
     console.log(title)
-    fetch(`http://localhost:3001/api/v1/anime`, {
+    fetch(`https://anime-api-showcase.herokuapp.com/api/v1/anime`, {
       method: 'DELETE',
       body: JSON.stringify({
         "title": foundAnime.title,
@@ -119,7 +119,7 @@ class App extends Component {
         console.log(err)
       })
       .then(data => {
-        fetch('http://localhost:3001/api/v1/anime')
+        fetch('https://anime-api-showcase.herokuapp.com/api/v1/anime')
       .then(res => res.json())
       .then(data => this.setState({ myWatchList: data.userWatchList }))
       })
