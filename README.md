@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+# Ani-Planet
+![Screen Shot 2022-06-12 at 4 40 08 PM](https://user-images.githubusercontent.com/89413678/173256442-0b296689-1a34-48e7-a48d-56aa01a4cbc9.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+#### Full Demo
 
-In the project directory, you can run:
+App Demo
 
-### `npm start`
+#### Deployable
+Add deploy link
+### [Showcase]()
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Getting Started
+1. Clone the repo from [github](https://github.com/aominhlong/Showcase)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. Cd into the directory from your terminal and install the project dependencies:
+- Run `npm install` or `npm i` in the terminal
 
-### `npm test`
+3. To see the web app:
+- Run `npm start` in the terminal
+- Press `ctrl/cmd + c` to exit
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. Copy the local host address from your terminal and add to your web browser to see the web app
 
-### `npm run build`
+### Table of Contents
+- [About the Project](#about-the-project)
+- [Contributors](#contributors)
+- [Technologies Used](#technologies-used)
+- [Instructions on Use](#instructions-on-use)
+- [Demo of Features](#demo-of-features)
+- [Testing the app](#testing-the-app)
+- [Challenges and Wins](#challenges-and-wins)
+- [Project Overview and Goals](#project-overview-and-goals)
+- [Future Additions](#future-additions)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### About the Project
+Love anime but don't know what to watch? Use this app to see what the best anime out there are. You can scroll through our list of anime and check their ratings. Love a specific genre or know what you want? Filter our list by genre, see what is popular, or even search it with our live responsive search bar. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This was part of Turing School of Software & Design module 3 showcase project. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Contributors
+ - [Nicholas Ao](https://github.com/aominhlong)
 
-### `npm run eject`
+#### Technologies Used
+- React
+- Javascript
+- Express 
+- HTML
+- CSS
+- Webkit
+- React Router for client-side routing
+- Cypress End-to-End Testing
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Instructions on Use
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**_Search for a specific Anime_**
+To search for a specific Anime, users can click in the input field and type in a title of the anime. The homepage will change based on a user's input.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**_Add a Anime to Watchlist_**
+To add an Anime to a user's watchlist, users can click on the 'Add Anime to Watchlist' button. Users will be notified that the anime is in their watchlist when added. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**_View all Anime in Watchlist_**
+To view anime in a user's watchlist, users can click on the 'My List' area in the navigation bar. This will take them to a new page to view the anime that they have added.
 
-## Learn More
+**_Remove Anime from Watchlist_**
+To remove an anime from a user's watchlist, users can click on the 'Remove from your Watchlist' button. 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**_Filter Anime by Genre_**
+To filter anime by genre, users can hover over the 'Genre' area and choose from seven different genres.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**_Filter Anime by Popularity_**
+To filter anime by popularity, users can click on the 'Popular' section located in the navigation bar and the anime will be sorted by user ratings. 
 
-### Code Splitting
+#### Demo of Features
+**Homepage**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Search for a specific Anime**
 
-### Analyzing the Bundle Size
+**Add a Anime to Watchlist**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**View all Anime in Watchlist**
 
-### Making a Progressive Web App
+**Remove Anime from Watchlist**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**Filter Anime by Genre**
 
-### Advanced Configuration
+**Filter Anime by Popularity**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### Testing the App
+`End-to-end` testing was implimented to test the application by using Cypress. `Stubbing` and `intercepting` was used to control the network response. The app was fully tested based on the user story from start to finish. 
 
-### Deployment
+#### Challenges and Wins
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+##### Challenges
+- Asynchronous timing was a challenge.
+- Making sure a anime would live update based on if it was in a user's watch list was challenging
+- Building the backend was challenging because I have never used Express before.
+- Making sure I was stubbing the responses when using cypress was a bit of a learning curve.
 
-### `npm run build` fails to minify
+##### Wins
+- Created my first backend server using express.
+- Making sure everything live updates
+- Implement a DELETE request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+#### Project Overview And Goals
+- Use OOP to drive the design of the application and the code
+- Gain competency with React fundamentals
+- Implement asynchronous JavaScript
+- Implement Router
+- e2e testing with Cypress
+- Use Express to build backend server
+
+#### Future Additions
+- Have users be able to leave a review about an anime
+- Add an anime description page where users can see an anime's details by clicking on a anime card at the homescreen
+- Add a larger database
