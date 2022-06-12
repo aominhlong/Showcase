@@ -33,13 +33,13 @@ class App extends Component {
         return res.json()
       } else {
         console.log(res)
-        throw Error(res.url)
+        throw Error(res.status)
       }
     })
     .then(data => this.setState({ allAnime: data.animeList, myWatchList: data.userWatchList, randomAnime: data.animeList[this.getRandomIntInclusive(0, data.animeList.length)] }))
     .catch(err  => {
       console.log(err)
-      this.setState({error: `${err} not found`})
+      this.setState({error: `${err}! Please try again later.`})
     })
   }
 
@@ -93,11 +93,12 @@ class App extends Component {
         if (res.ok) {
           return res.json()
         } else {
-          throw Error(res.statusText)
+          console.log(res)
+          throw Error(res.status)
         }
       })
       .catch(err => {
-        this.setState({error: true})
+        this.setState({error: `${err}! Please try again later`})
       })
 
     } else if (!this.state.myWatchList.includes(newAnime)) {
@@ -120,11 +121,11 @@ class App extends Component {
         if (res.ok) {
           return res.json()
         } else {
-          throw Error(res.statusText)
+          throw Error(res.status)
         }
       })
       .catch(err => {
-        this.setState({error: true})
+        this.setState({error: `${err}! Please try again later`})
       })
     }
   }
@@ -147,11 +148,11 @@ class App extends Component {
       }
       })
       .then(res => {if (!res.ok) {
-        throw Error(res.url)
+        throw Error(res)
       }
       })
       .catch(err => {
-        this.setState({error: `Failed to delete from ${err}`})
+        this.setState({error: `Failed to remove anime. Please try again later.`})
       })
       .then(() => fetch('https://anime-api-showcase.herokuapp.com/api/v1/anime'))
       .then(res => {
@@ -159,12 +160,12 @@ class App extends Component {
           return res.json()
         } else {
           console.log(res) 
-          throw Error(res.url)
+          throw Error(res.status)
         }
       })
       .then(data => this.setState({ myWatchList: data.userWatchList }))
       .catch(err => {
-          this.setState({error: `${err} not found`})
+          this.setState({error: `${err}! Please try again later`})
       })
   }
   

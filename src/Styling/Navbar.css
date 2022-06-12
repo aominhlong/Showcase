@@ -34,6 +34,6 @@
     background-color: #f1f1f1
 }
 
-.dropdown:checked > .dropdown-content {
+.dropdown:hover > .dropdown-content {
     display: block;
 }
