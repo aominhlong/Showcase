@@ -1,6 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import '../Styling/ErrorPage.css'
+import '../Styling/ErrorPage.css';
+import { Link } from 'react-router-dom';
 
 function ErrorPage() {
     return(

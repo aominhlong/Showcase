@@ -1,6 +1,7 @@
 import React from 'react';
-import '../Styling/Navbar.css'
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import '../Styling/Navbar.css';
 
 function Navbar({ chooseGenre, chooseMostPopular }) {
     return(
@@ -26,3 +27,8 @@ function Navbar({ chooseGenre, chooseMostPopular }) {
 }
 
 export default Navbar;
+
+Navbar.propTypes = {
+    chooseGenre: PropTypes.func,
+    chooseMostPopular: PropTypes.func
+}

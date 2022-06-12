@@ -1,6 +1,7 @@
 import React from 'react';
-import '../Styling/Form.css';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import '../Styling/Form.css';
 
 function Form({ input, searchAnime, clearSearchedAnime }) {
     return (
@@ -17,3 +18,9 @@ function Form({ input, searchAnime, clearSearchedAnime }) {
 }
 
 export default Form;
+
+Form.propTypes = {
+    input: PropTypes.string,
+    searchAnime: PropTypes.func,
+    clearSearchedAnime: PropTypes.func
+}
