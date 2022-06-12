@@ -53,9 +53,38 @@ This was part of Turing School of Software & Design module 3 showcase project.
 
 #### Instructions on Use
 
+**_Search for a specific Anime_**
+To search for a specific Anime, users can click in the input field and type in a title of the anime. The homepage will change based on a user's input.
+
+**_Add a Anime to Watchlist_**
+To add an Anime to a user's watchlist, users can click on the 'Add Anime to Watchlist' button. Users will be notified that the anime is in their watchlist when added. 
+
+**_View all Anime in Watchlist_**
+To view anime in a user's watchlist, users can click on the 'My List' area in the navigation bar. This will take them to a new page to view the anime that they have added.
+
+**_Remove Anime from Watchlist_**
+To remove an anime from a user's watchlist, users can click on the 'Remove from your Watchlist' button. 
+
+**_Filter Anime by Genre_**
+To filter anime by genre, users can hover over the 'Genre' area and choose from seven different genres.
+
+**_Filter Anime by Popularity_**
+To filter anime by popularity, users can click on the 'Popular' section located in the navigation bar and the anime will be sorted by user ratings. 
 
 #### Demo of Features
+**Homepage**
 
+**Search for a specific Anime**
+
+**Add a Anime to Watchlist**
+
+**View all Anime in Watchlist**
+
+**Remove Anime from Watchlist**
+
+**Filter Anime by Genre**
+
+**Filter Anime by Popularity**
 
 #### Testing the App
 `End-to-end` testing was implimented to test the application by using Cypress. `Stubbing` and `intercepting` was used to control the network response. The app was fully tested based on the user story from start to finish. 
@@ -63,9 +92,15 @@ This was part of Turing School of Software & Design module 3 showcase project.
 #### Challenges and Wins
 
 ##### Challenges
-
+- Asynchronous timing was a challenge.
+- Making sure a anime would live update based on if it was in a user's watch list was challenging
+- Building the backend was challenging because I have never used Express before.
+- Making sure I was stubbing the responses when using cypress was a bit of a learning curve.
 
 ##### Wins
+- Created my first backend server using express.
+- Making sure everything live updates
+- Implement a DELETE request
 
 
 #### Project Overview And Goals
@@ -77,4 +112,6 @@ This was part of Turing School of Software & Design module 3 showcase project.
 - Use Express to build backend server
 
 #### Future Additions
-
+- Have users be able to leave a review about an anime
+- Add an anime description page where users can see an anime's details by clicking on a anime card at the homescreen
+- Add a larger database
