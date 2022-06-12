@@ -1,5 +1,6 @@
 import React from 'react';
 import Anime from './Anime';
+import PropTypes from 'prop-types';
 import '../Styling/AnimeContainer.css';
 
 function AnimeContainer({ anime, addToWatchList, myWatchList, deleteFromWatchList }) {
@@ -7,13 +8,15 @@ function AnimeContainer({ anime, addToWatchList, myWatchList, deleteFromWatchLis
         return <Anime
             id={ anime.indexOf(specificAnime) }
             key={ anime.indexOf(specificAnime) }
-            animeInfo={ specificAnime }
+            title={ specificAnime.title }
+            rating={ specificAnime.rating }
+            image= { specificAnime.image }
+            genre={ specificAnime.genre }
             addToWatchList={ addToWatchList }
             myWatchList={ myWatchList }
             deleteFromWatchList={ deleteFromWatchList }
         />
     })
-
     return(
         <div className='anime-container'>
            { animeList }
@@ -22,3 +25,10 @@ function AnimeContainer({ anime, addToWatchList, myWatchList, deleteFromWatchLis
 }
 
 export default AnimeContainer
+
+AnimeContainer.propTypes = {
+    anime: PropTypes.array,
+    myWatchList: PropTypes.array,
+    addToWatchList: PropTypes.func,
+    deleteFromWatchList: PropTypes.func
+}
