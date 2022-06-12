@@ -7,6 +7,7 @@ describe('Ani Planet Homepage', () => {
 
     it('Should load landing the homepage URL', () => {
         cy.url().should('eq', 'http://localhost:3000/');
+        cy.contains('Ani-Planet')
     })
 
     it('should show all anime', () => {
@@ -39,13 +40,21 @@ describe('Ani Planet Homepage', () => {
         cy.get('.anime-container').children(2).contains('Anime is in your watch list')
     })
 
-    it('let users see which anime is not added to their watch list', () => {
+    it('should see which anime is not added to their watch list', () => {
         cy.get('.anime-container').children(1).contains('Anime is in your watch list')
     })
 
     it('should be able to see which anime is in their list', () => {
         cy.get('.my-watch-list-btn').click()
         cy.get('.anime-container').children().should('have.length', 2)
+    })
+
+    it('should take users back home when clicking on the home button', () => {
+        cy.get('.my-watch-list-btn').click()
+        cy.get('.anime-container').children().should('have.length', 2)
+
+        cy.get('.home-btn').click()
+        cy.get('.anime-container').children().should('have.length', 4)
     })
 
     it('should allow users to remove an anime from their watch list', () => {
@@ -84,7 +93,7 @@ describe('Ani Planet Homepage', () => {
         cy.get('.anime-container').children().should('have.length', 4)
     })
 
-    it('should show an error message if the fetch call did not work', () => {
+    it(`should show an error message if 'GET' did not work`, () => {
         cy.intercept('GET', 'https://anime-api-showcase.herokuapp.com/api/v1/anime',{
             statusCode: 404
         })
@@ -92,7 +101,7 @@ describe('Ani Planet Homepage', () => {
         cy.get('h1').should('have.text', `Error: 404! Please try again later.`)
     })    
 
-    it('should show an error message if the fetch call did not work', () => {
+    it(`should show an error message if 'POST' did not work`, () => {
         cy.intercept('POST', 'https://anime-api-showcase.herokuapp.com/api/v1/anime',{
             statusCode: 404
         })
@@ -100,7 +109,7 @@ describe('Ani Planet Homepage', () => {
         cy.get('h1').should('have.text', `Error: 404! Please try again later`)
     }) 
 
-    it('should show an error message if the fetch call did not work', () => {
+    it(`should show an error message if 'DELETE' did not work`, () => {
         cy.intercept('DELETE', 'https://anime-api-showcase.herokuapp.com/api/v1/anime',{
             statusCode: 404
         })
