@@ -3,8 +3,7 @@
 
 
 #### Full Demo
-
-App Demo
+![App Demo](https://user-images.githubusercontent.com/89413678/173257353-08a61b25-acd9-4528-811f-731f1402d44e.gif)
 
 #### Deployable
 Add deploy link
@@ -73,18 +72,26 @@ To filter anime by popularity, users can click on the 'Popular' section located 
 
 #### Demo of Features
 **Homepage**
+![Homepage](https://user-images.githubusercontent.com/89413678/173257404-156f151d-1c81-4af9-91ea-e99eb1d53c07.gif)
 
 **Search for a specific Anime**
+![Search](https://user-images.githubusercontent.com/89413678/173257433-c81ec5c2-a0d4-4ea0-b61d-b0be73573362.gif)
 
 **Add a Anime to Watchlist**
+![View ](https://user-images.githubusercontent.com/89413678/173257530-717b4c99-d281-4dc2-ad34-89d115e9e670.gif)
+
 
 **View all Anime in Watchlist**
+![View anime](https://user-images.githubusercontent.com/89413678/173257587-a090fdb7-5071-413b-ae97-3c14d35958d8.gif)
 
 **Remove Anime from Watchlist**
+![Remove](https://user-images.githubusercontent.com/89413678/173257635-31a048ee-682b-4fb4-8e15-84ba7f3571cf.gif)
 
 **Filter Anime by Genre**
+![Genre](https://user-images.githubusercontent.com/89413678/173257659-75992914-7e95-4e3a-b112-279ad838cbc6.gif)
 
 **Filter Anime by Popularity**
+![Popularity](https://user-images.githubusercontent.com/89413678/173257673-a021da1b-28cc-4469-8f52-fbf923828106.gif)
 
 #### Testing the App
 `End-to-end` testing was implimented to test the application by using Cypress. `Stubbing` and `intercepting` was used to control the network response. The app was fully tested based on the user story from start to finish. 
