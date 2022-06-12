@@ -12,8 +12,8 @@ function Anime({ title, rating, image, genre, addToWatchList, myWatchList, delet
                 <h1>{ title }</h1>
                 <h5 className='genre'>({ genre.join(', ') })</h5>
                 <h4 className='rating'>rating: { rating }</h4>
-                { myWatchListTitles.includes(title) ? <h5 className='in-watch-list' >Anime is in your watch list</h5> : 
-                <button id='add-anime' className={`${title}-add-btn`} onClick={(() => addToWatchList(title))}>Add Anime to Watchlist</button> }
+                { myWatchListTitles.includes(title) ? <h5 className='in-watch-list'>(Anime is in your watch list)</h5> : 
+                <button id='add-anime-btn' className={`${title}-add-btn`} onClick={(() => addToWatchList(title))}>Add Anime to Watchlist</button> }
                 { myWatchListTitles.includes(title) && <button id='delete-btn' className={`${title}-delete-btn`} onClick={(() => deleteFromWatchList(title))}>Remove from your Watchlist</button> }
             </div>
         </div>
