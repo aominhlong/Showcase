@@ -8,13 +8,13 @@ function Navbar({ chooseGenre, chooseMostPopular }) {
             <div className='dropdown'>
                     <button className='categories'>Genre</button>
                     <div className='dropdown-content'>
-                        <a href='#' id='Action' onClick={(event => chooseGenre(event))}>Action</a>
-                        <a href='#' id='Comedy' onClick={(event => chooseGenre(event))}>Comedy</a>
-                        <a href='#' id='Adventure' onClick={(event => chooseGenre(event))}>Adventure</a>
-                        <a href='#' id='Drama' onClick={(event => chooseGenre(event))}>Drama</a>
-                        <a href='#' id='Sport' onClick={(event => chooseGenre(event))}>Sport</a>
-                        <a href='#' id='Fantasy' onClick={(event => chooseGenre(event))}>Fantasy</a>
-                        <a href='#' id='Sci-Fi' onClick={(event => chooseGenre(event))}>Sci-Fi</a>
+                        <a href='#action' id='Action' className='action' onClick={(event => chooseGenre(event))}>Action</a>
+                        <a href='#comedy' id='Comedy' onClick={(event => chooseGenre(event))}>Comedy</a>
+                        <a href='#adventure' id='Adventure' onClick={(event => chooseGenre(event))}>Adventure</a>
+                        <a href='#drama' id='Drama' onClick={(event => chooseGenre(event))}>Drama</a>
+                        <a href='#sport' id='Sport' onClick={(event => chooseGenre(event))}>Sport</a>
+                        <a href='#fantasy' id='Fantasy' onClick={(event => chooseGenre(event))}>Fantasy</a>
+                        <a href='#sci-fi' id='Sci-Fi' onClick={(event => chooseGenre(event))}>Sci-Fi</a>
                     </div>
             </div>
             <button className='popular-btn' onClick={() => chooseMostPopular()}>Popular</button>

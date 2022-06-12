@@ -2,11 +2,11 @@ describe('Ani Planet Homepage', () => {
     beforeEach(() => {
         cy.intercept('GET', 'https://anime-api-showcase.herokuapp.com/api/v1/anime', {fixture : 'allData.json'})
 
-        cy.intercept('POST', 'https://anime-api-showcase.herokuapp.com/api/v1/anime', {fixture: 'allData.json'})
-        
-        cy.intercept('DELETE', 'https://anime-api-showcase.herokuapp.com/api/v1/anime', {fixture: 'deleteFixture.json'})
-
         cy.visit('http://localhost:3000/')
+    })
+
+    it('Should load landing the homepage URL', () => {
+        cy.url().should('eq', 'http://localhost:3000/');
     })
 
     it('should show all anime', () => {
@@ -26,6 +26,13 @@ describe('Ani Planet Homepage', () => {
     it('should filter by popular animes', () => {
         cy.get('.popular-btn').click()
         cy.get('.anime-container').children(1).contains('Hunter x Hunter (2011)')
+    })
+
+    it('should change the url when clicking on a genre in the dropdown genre  menu', () => {
+        cy.get('.dropdown-content').invoke('show')
+        cy.get('.action').click({ force: true })
+
+        cy.url().should('eq', 'http://localhost:3000/#action')
     })
 
     it('let users see which anime is added to their list', () => {
@@ -65,10 +72,41 @@ describe('Ani Planet Homepage', () => {
         cy.get('img').should('exist')
     })
 
+    it('should take a user to an error screen if the url is bad', () => {
+        cy.visit('http://localhost:3000/badURL')
+        cy.get('.error-page-message').should('exist')
+        cy.get('img').should('exist')
+    })
 
-    // it.only('should filter based on a genre click', () => {
-    //     cy.get('.categories').click()
-        
-    // })
+    it('should take a user to back home if they click on the here text', () => {
+        cy.visit('http://localhost:3000/badURL')
+        cy.get('span').click()
+        cy.get('.anime-container').children().should('have.length', 4)
+    })
+
+    it('should show an error message if the fetch call did not work', () => {
+        cy.intercept('GET', 'https://anime-api-showcase.herokuapp.com/api/v1/anime',{
+            statusCode: 404
+        })
+        cy.get('img').should('exist')
+        cy.get('h1').should('have.text', `Error: 404! Please try again later.`)
+    })    
+
+    it('should show an error message if the fetch call did not work', () => {
+        cy.intercept('POST', 'https://anime-api-showcase.herokuapp.com/api/v1/anime',{
+            statusCode: 404
+        })
+        cy.get('.Your').click()
+        cy.get('h1').should('have.text', `Error: 404! Please try again later`)
+    }) 
+
+    it('should show an error message if the fetch call did not work', () => {
+        cy.intercept('DELETE', 'https://anime-api-showcase.herokuapp.com/api/v1/anime',{
+            statusCode: 404
+        })
+        cy.get('.Attack').click()
+        cy.get('h1').should('have.text', `Failed to remove anime. Please try again later.`)
+    }) 
+
 })
 
