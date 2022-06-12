@@ -209,7 +209,7 @@ class App extends Component {
               )
             }
           }} />
-         
+        
           <Route path="/watch-list" render={() => {
             return <AnimeContainer anime={ this.state.myWatchList } addToWatchList={ this.addToWatchList } myWatchList={ this.state.myWatchList } deleteFromWatchList={ this.deleteFromWatchList }/>
           }} />
