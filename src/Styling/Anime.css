@@ -1,29 +1,65 @@
 .anime-card {
     height: 43rem;
     width: 15rem;
-    border: 2px solid blue;
+    border: 2px solid rgb(123, 123, 219);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 img {
+    margin-top: 5%;
     height: 20.15rem;
     width: 14.25rem;
-    border: 2px solid blue;
 }
 
 h1, h4, h5 {
     font-size: 1rem;
-    border: 2px solid green;
+    margin: 0.3rem;
+    text-align: center;
+}
+
+h1 {
+    height: 25%;
+}
+
+.rating {
+    margin-top: 4.5%;
+    font-weight: 500;
+    font-style: italic;
+}
+
+h5 {
+    margin: 8%;
+    font-weight: normal;
+    font-size: 75%;
+}
+
+.genre {
+    height: 15%;
+    font-size: 0.9rem;
+}
+
+#add-anime {
+    border: 2px sold orange;
+    margin-top: 38.5%;
+}
+
+.in-watch-list {
+    font-weight: bold;
+    margin-top: 28.5%;
+}
+
+#delete-btn {
+    margin-bottom: 19%;
 }
 
 .anime-details {
-    border: 2px solid green;
+    height: 45%;
     width: 80%;
     display: flex;
     flex-direction: column;
-    margin: none;
+    margin-top: 3%;
 }
 
 @media screen and (max-width: 415px) {
@@ -46,8 +82,6 @@ h1, h4, h5 {
         border: 2px solid blue;
         width: 80%;
         display: flex;
-        /* align-items: center;
-        justify-content: center; */
         flex-direction: column;
     }
     

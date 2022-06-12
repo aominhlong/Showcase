@@ -6,6 +6,7 @@ import Navbar from './Navbar'
 import { Route, Switch, Redirect } from 'react-router-dom';
 import RandomAnime from './RandomAnime';
 import ErrorPage from './ErrorPage';
+import { getAllAnime, addAnime, removeAnime, updateWatchList } from '../apiCalls'
 
 class App extends Component {
   constructor() {
@@ -27,15 +28,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://anime-api-showcase.herokuapp.com/api/v1/anime')
-    .then(res => {
-      if(res.ok) {
-        return res.json()
-      } else {
-        console.log(res)
-        throw Error(res.status)
-      }
-    })
+    getAllAnime
     .then(data => this.setState({ allAnime: data.animeList, myWatchList: data.userWatchList, randomAnime: data.animeList[this.getRandomIntInclusive(0, data.animeList.length)] }))
     .catch(err  => {
       console.log(err)
@@ -72,61 +65,12 @@ class App extends Component {
     const newAnime = this.state.allAnime.find(anime => {
       return anime.title.toLowerCase() === title.toLowerCase()
     })
-  
     if (this.state.myWatchList.length < 1 && !this.state.myWatchList.includes(newAnime)) {
       this.setState({ myWatchList: [newAnime] })
-
-      fetch(`https://anime-api-showcase.herokuapp.com/api/v1/anime`, {
-      method: 'POST',
-      body: JSON.stringify({
-        "title": newAnime.title,
-        "image": newAnime.image,
-        "rating": newAnime.rating,
-        "runtime": newAnime.runtime,
-        "genre": newAnime.genre
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-      })
-      .then(res => {
-        if (res.ok) {
-          return res.json()
-        } else {
-          console.log(res)
-          throw Error(res.status)
-        }
-      })
-      .catch(err => {
-        this.setState({error: `${err}! Please try again later`})
-      })
-
+      addAnime(newAnime)
     } else if (!this.state.myWatchList.includes(newAnime)) {
       this.setState({ myWatchList: [...this.state.myWatchList, newAnime] })
-
-      fetch(`https://anime-api-showcase.herokuapp.com/api/v1/anime`, {
-      method: 'POST',
-      body: JSON.stringify({
-        "title": newAnime.title,
-        "image": newAnime.image,
-        "rating": newAnime.rating,
-        "runtime": newAnime.runtime,
-        "genre": newAnime.genre
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-      })
-      .then(res => {
-        if (res.ok) {
-          return res.json()
-        } else {
-          throw Error(res.status)
-        }
-      })
-      .catch(err => {
-        this.setState({error: `${err}! Please try again later`})
-      })
+      addAnime(newAnime)
     }
   }
   
@@ -147,14 +91,7 @@ class App extends Component {
         'Content-Type': 'application/json'
       }
       })
-      .then(res => {if (!res.ok) {
-        throw Error(res)
-      }
-      })
-      .catch(err => {
-        this.setState({error: `Failed to remove anime. Please try again later.`})
-      })
-      .then(() => fetch('https://anime-api-showcase.herokuapp.com/api/v1/anime'))
+      .then(() =>fetch('https://anime-api-showcase.herokuapp.com/api/v1/anime'))
       .then(res => {
         if (res.ok) {
           return res.json()
