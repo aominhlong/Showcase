@@ -2,11 +2,6 @@
     height: 100vh;
 }
 
-.random-anime{
-    display: none;
-}
-
-
 .no-search-results,
 .get-error {
     display: flex;
@@ -15,14 +10,14 @@
     flex-direction: column;
 }
 
-@media screen and (min-width: 1143px){
-    .random-anime{
-        display: block;
-    }
+.no-search-result {
+    margin-top: 1rem;
+}
 
+@media screen and (min-width: 1143px){
     .divider{
-        border: 2px solid orange;
-        background-color: orange;
+        border: 2px solid rgb(24, 86, 162);
+        background-color: rgb(62, 147, 251);
         margin-top: 0.6rem;
         margin-bottom: 0.6rem;
     }
@@ -30,7 +25,19 @@
     .homepage{
         display: flex;
         flex-direction: row;
-        border: 2px solid green;
+        background-color: aliceblue;
+    }
+}
+
+@media screen and (max-width: 1142px) {
+    .homepage{
+        display: flex;
+        flex-direction: column-reverse;
+        background-color: aliceblue;
+    }
+
+    .random-anime {
+        height: 40%;
     }
 }
 
@@ -50,4 +57,6 @@
         width: 100%;
     }
 }
+
+
 

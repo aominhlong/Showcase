@@ -5,12 +5,20 @@
     margin-left: 0.8rem;
 }
 
+.random-anime-container {
+    display: flex;
+    background-color: white;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
 .pick-of-the-day {
     font-size: 300%;
 }
 
 .random-anime-img {
-    position: relative;
     height: 60%;
     width: 53%;
 }
@@ -24,7 +32,6 @@
 }
 
 .random-anime-synopsys {
-    /* border: 1px solid rgb(195, 195, 205); */
     padding: 3%;
     margin-right: 1.2rem;
     font-size: 120%;
@@ -35,3 +42,17 @@
     margin-top: 3%;
 }
 
+.add-random-anime:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1142px) {
+    .pick-of-the-day {
+        font-size: 200%;
+    }
+
+    .random-anime-img {
+        height: 40%;
+        width: 33%;
+    }
+}

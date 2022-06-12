@@ -1,6 +1,6 @@
 @media screen and (min-width: 768px) {
     .anime-container {
-        /* border: 2px solid red; */
+        background-color: aliceblue;
         display: grid;
         padding: 2rem;
         grid-template-columns: repeat(3, 1fr);

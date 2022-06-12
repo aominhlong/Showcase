@@ -1,14 +1,15 @@
 .navbar {
-    border-bottom: 2px solid orange;
-    height: 3rem;
+    border-bottom: 2px solid rgb(110, 136, 178);
+    background-color: aliceblue;
+    height: 4rem;
+    width: auto;
     display: flex;
     align-items: center;
-    /* gap: 3%; */
-    justify-content: space-around;
-
+    gap: 7%;
 }
 
 .dropdown {
+    margin-left: 10%;
     position: relative;
     display: inline-block;
 }
@@ -17,23 +18,56 @@
     display: none;
     position: absolute;
     background-color: #f8f7f7;
-    min-width: 160px;
+    min-width: 260%;
     z-index: 1;
 }
 
 .dropdown-content > a {
     color: black;
-    background: #e9e8e8;
+    background: #cee9f1;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
   }
 
 .dropdown-content > a:hover {
-    border-bottom: 2px solid rgb(224, 136, 28);
-    background-color: #f1f1f1
+    border-bottom: 2px solid rgb(28, 103, 224);
+    background-color: rgb(199, 225, 247);
+    font-weight: bold;
+    color: rgb(4, 34, 72);
 }
 
 .dropdown:hover > .dropdown-content {
     display: block;
+}
+
+.popular-btn,
+.my-watch-list-btn,
+.categories {
+    border: none;
+    background-color: aliceblue;
+    font-weight: bold;
+    font-size: 150%;
+}
+
+.popular-btn:hover,
+.my-watch-list-btn:hover,
+.categories:hover {
+    cursor: pointer;
+    color:rgb(28, 103, 224);
+}
+
+@media screen and (max-width: 415px) {
+
+    .dropdown {
+        margin: 0;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+  
 }
