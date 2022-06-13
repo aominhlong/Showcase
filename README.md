@@ -8,7 +8,7 @@
 
 #### Deployable
 Add deploy link
-### [Showcase](https://aominhlong.github.io/)
+### [Showcase]([https://aominhlong.github.io/](https://aominhlong.github.io/Showcase/))
 
 #### Getting Started
 1. Clone the repo from [github](https://github.com/aominhlong/Showcase)
