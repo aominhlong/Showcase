@@ -11,6 +11,7 @@
 
 #### Getting Started
 1. Clone the repo from [github](https://github.com/aominhlong/Showcase)
+2. (OPTIONAL) To see the repository for the data, click [HERE](https://github.com/aominhlong/Showcase-api)
 
 2. Cd into the directory from your terminal and install the project dependencies:
 - Run `npm install` or `npm i` in the terminal
