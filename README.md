@@ -7,7 +7,6 @@
 ![App Demo](https://user-images.githubusercontent.com/89413678/173257353-08a61b25-acd9-4528-811f-731f1402d44e.gif)
 
 #### Deployable
-Add deploy link
 ### [Showcase]([https://aominhlong.github.io/](https://aominhlong.github.io/Showcase/))
 
 #### Getting Started
