@@ -19,7 +19,7 @@ function AnimeContainer({ anime, addToWatchList, myWatchList, deleteFromWatchLis
     })
     return(
         <div className='anime-container'>
-        { myWatchList.length === 0 ? <h1>There are no Anime in your list</h1> : animeList} 
+           { animeList }
         </div>
     )
 }
