@@ -1,27 +1,7 @@
-version: 2
-jobs: 
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1
+workflows:
   build:
-    docker:
-      - image: node:v17.3.0
-
-    working_directory: ~/repo
-
-    steps:
-      - checkout
-
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-
-            - v1-dependencies-
-      
-      - run: npm install
-
-      - save_cache:
-        paths:
-          - node_modules
-        key: v1-dependencies-{{ checksum "package.json" }}
-
-      - run: npm test
-
-      - run: npm run build
+    jobs:
+      - cypress/run
