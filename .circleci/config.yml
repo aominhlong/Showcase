@@ -1,7 +1,8 @@
 version: 2.1
-orbs: 
-  cypress: cypress-io/cypress@2.0.0
+orbs:
+  cypress: cypress-io/cypress@1.30.0
 workflows:
   build:
     jobs:
-      - cypress/run
+      - cypress/run:
+          component: true
