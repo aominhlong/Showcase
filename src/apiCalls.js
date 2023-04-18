@@ -1,6 +1,6 @@
 
 
-let getAllAnime = fetch('https://anime-api-showcase.herokuapp.com/api/v1/anime')
+let getAllAnime = fetch('https://showcase-api-eight.vercel.app/api/v1/anime')
     .then(res => {
       if(res.ok) {
         return res.json()
@@ -11,7 +11,7 @@ let getAllAnime = fetch('https://anime-api-showcase.herokuapp.com/api/v1/anime')
     })
 
 let addAnime = (newAnime) => {
-    fetch(`https://anime-api-showcase.herokuapp.com/api/v1/anime`, {
+    fetch(`https://showcase-api-eight.vercel.app/api/v1/anime`, {
       method: 'POST',
       body: JSON.stringify({
         "title": newAnime.title,
@@ -42,7 +42,7 @@ let updateWatchList = () => {
 }
 
 let removeAnime = (foundAnime) => {
-    // fetch(`https://anime-api-showcase.herokuapp.com/api/v1/anime`, {
+    // fetch(`https://showcase-api-eight.vercel.app/api/v1/anime`, {
     //   method: 'DELETE',
     //   body: JSON.stringify({
     //     "title": foundAnime.title,
@@ -55,7 +55,7 @@ let removeAnime = (foundAnime) => {
     //     'Content-Type': 'application/json'
     //   }
     //   })
-    //   .then(() =>fetch('https://anime-api-showcase.herokuapp.com/api/v1/anime'))
+    //   .then(() =>fetch('https://showcase-api-eight.vercel.app/api/v1/anime'))
     //   .then(res => {
     //     if (res.ok) {
     //       return res.json()
