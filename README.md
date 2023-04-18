@@ -1,4 +1,4 @@
-# Ani-Planet (hosted [Here](https://verdant-croquembouche-9c3f0a.netlify.app/Showcase/)
+# Ani-Planet (hosted [Here](https://verdant-croquembouche-9c3f0a.netlify.app/Showcase/))
 ![Screen Shot 2022-06-12 at 4 40 08 PM](https://user-images.githubusercontent.com/89413678/173256442-0b296689-1a34-48e7-a48d-56aa01a4cbc9.png)
 
 
