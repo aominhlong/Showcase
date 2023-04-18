@@ -1,6 +1,6 @@
 describe('Ani Planet Homepage', () => {
     beforeEach(() => {
-        cy.intercept('GET', 'https://anime-api-showcase.herokuapp.com/api/v1/anime', {fixture : 'allData.json'})
+        cy.intercept('GET', 'https://showcase-api-eight.vercel.app/api/v1/anime', {fixture : 'allData.json'})
 
         cy.visit('http://localhost:3000/')
     })
@@ -58,7 +58,7 @@ describe('Ani Planet Homepage', () => {
     })
 
     it('should allow users to remove an anime from their watch list', () => {
-        cy.intercept('GET', 'https://anime-api-showcase.herokuapp.com/api/v1/anime', {fixture : 'deleteFixture.json'})
+        cy.intercept('GET', 'https://showcase-api-eight.vercel.app/api/v1/anime', {fixture : 'deleteFixture.json'})
 
         cy.get('.my-watch-list-btn').click()
         cy.get('.Attack').click()
@@ -66,7 +66,7 @@ describe('Ani Planet Homepage', () => {
     })
 
     it('should allow users to add an anime to their watch list', () => {
-        cy.intercept('POST', 'https://anime-api-showcase.herokuapp.com/api/v1/anime', {fixture : 'postFixture.json'})
+        cy.intercept('POST', 'https://showcase-api-eight.vercel.app/api/v1/anime', {fixture : 'postFixture.json'})
         
         cy.get('.Hunter').click()
         cy.get('.my-watch-list-btn').click()
@@ -94,7 +94,7 @@ describe('Ani Planet Homepage', () => {
     })
 
     it(`should show an error message if 'GET' did not work`, () => {
-        cy.intercept('GET', 'https://anime-api-showcase.herokuapp.com/api/v1/anime',{
+        cy.intercept('GET', 'https://showcase-api-eight.vercel.app/api/v1/anime',{
             statusCode: 404
         })
         cy.get('img').should('exist')
@@ -102,7 +102,7 @@ describe('Ani Planet Homepage', () => {
     })    
 
     it(`should show an error message if 'POST' did not work`, () => {
-        cy.intercept('POST', 'https://anime-api-showcase.herokuapp.com/api/v1/anime',{
+        cy.intercept('POST', 'https://showcase-api-eight.vercel.app/api/v1/anime',{
             statusCode: 404
         })
         cy.get('.Your').click()
@@ -110,7 +110,7 @@ describe('Ani Planet Homepage', () => {
     }) 
 
     it(`should show an error message if 'DELETE' did not work`, () => {
-        cy.intercept('DELETE', 'https://anime-api-showcase.herokuapp.com/api/v1/anime',{
+        cy.intercept('DELETE', 'https://showcase-api-eight.vercel.app/api/v1/anime',{
             statusCode: 404
         })
         cy.get('.Attack').click()

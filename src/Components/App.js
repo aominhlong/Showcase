@@ -78,7 +78,7 @@ class App extends Component {
     const foundAnime = this.state.allAnime.find(anime => {
       return anime.title.toLowerCase() === title.toLowerCase()
     })
-    fetch(`https://anime-api-showcase.herokuapp.com/api/v1/anime`, {
+    fetch(`https://showcase-api-eight.vercel.app/api/v1/anime`, {
       method: 'DELETE',
       body: JSON.stringify({
         "title": foundAnime.title,
@@ -91,7 +91,7 @@ class App extends Component {
         'Content-Type': 'application/json'
       }
       })
-      .then(() =>fetch('https://anime-api-showcase.herokuapp.com/api/v1/anime'))
+      .then(() =>fetch('https://showcase-api-eight.vercel.app/pi/v1/anime'))
       .then(res => {
         if (res.ok) {
           return res.json()
